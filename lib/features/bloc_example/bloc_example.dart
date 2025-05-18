@@ -13,6 +13,14 @@ class BlocExamplePage extends StatelessWidget {
         title: const Text('Bloc Example'),
       ),
       body: BlocListener<ExampleBloc, ExampleState>(
+        listenWhen: (previous, current) {
+          if (previous is ExampleInitialState && current is ExampleDataState) {
+            if (current.names.length > 3) {
+              return true;
+            }
+          }
+          return false;
+        },
         listener: (context, state) {
           if (state is ExampleDataState) {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -25,8 +33,13 @@ class BlocExamplePage extends StatelessWidget {
         child: Column(
           children: [
             BlocConsumer<ExampleBloc, ExampleState>(
-              listener: (context, state){
-                print('BlocConsumer listener: $state');
+              buildWhen: (previous, current) {
+                if (previous is ExampleInitialState && current is ExampleDataState) {
+                  if (current.names.length > 3) {
+                    return true;
+                  }
+                }
+                return false;
               },
               builder: (_, state) {
                 if (state is ExampleDataState) {
@@ -34,55 +47,49 @@ class BlocExamplePage extends StatelessWidget {
                     'Quantidade de nomes: ${state.names.length}',
                     style: const TextStyle(fontSize: 20),
                   );
-                } else {
-                  return const Text('No data found');
                 }
-              }, 
-              ),
-
+                return const SizedBox.shrink();
+              },
+              listener: (context, state) {
+                print('BlocConsumer listener: $state');
+              },
+            ),
             BlocSelector<ExampleBloc, ExampleState, bool>(
-              selector: (state){
-                if (state is ExampleInitialState){
+              selector: (state) {
+                if (state is ExampleInitialState) {
                   return true;
                 } else {
                   return false;
                 }
-              }, 
-              builder: (context, showLoader){
+              },
+              builder: (context, showLoader) {
                 if (showLoader) {
-                  return Expanded(child: Center(child: const CircularProgressIndicator()));
+                  return Expanded(
+                      child: Center(child: const CircularProgressIndicator()));
                 } else {
                   return const SizedBox.shrink();
                 }
               },
-              ),
-
+            ),
             BlocSelector<ExampleBloc, ExampleState, List<String>>(
-              selector: (state){
-                if (state is ExampleDataState){
-                  return state.names;
-                } else {
-                  return [];
-                }
-              }, 
-              builder: (context, names){
-               return ListView.builder(
+                selector: (state) {
+              if (state is ExampleDataState) {
+                return state.names;
+              } else {
+                return [];
+              }
+            }, builder: (context, names) {
+              return ListView.builder(
                   shrinkWrap: true,
                   itemCount: names.length,
                   itemBuilder: (context, index) {
                     return ListTile(
                       title: Text(names[index]),
                     );
-                  }
-                );
-              }
-            ),
-            
+                  });
+            }),
 
-
-
-
-           /* BlocBuilder<ExampleBloc, ExampleState>(builder: (context, state) {
+            /* BlocBuilder<ExampleBloc, ExampleState>(builder: (context, state) {
               if (state is ExampleDataState) {
                 return ListView.builder(
                   shrinkWrap: true,
