@@ -2,9 +2,9 @@ part of 'example_bloc.dart';
 abstract class ExampleEvent {}
 
 class ExampleFindNameEvent extends ExampleEvent {
-  final String name;
+  final String? name;
 
-  ExampleFindNameEvent({required this.name});
+  ExampleFindNameEvent({this.name});
 }
 class ExampleAddNameEvent extends ExampleEvent{}
 
