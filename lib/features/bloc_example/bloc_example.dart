@@ -83,8 +83,13 @@ class BlocExamplePage extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: names.length,
                   itemBuilder: (context, index) {
+                    final name = names[index];
                     return ListTile(
-                      title: Text(names[index]),
+                      onTap: () {
+                        context.read<ExampleBloc>()
+                        .add(ExampleRemoveNameEvent(name: name));
+                      },
+                      title: Text(name),
                     );
                   });
             }),
