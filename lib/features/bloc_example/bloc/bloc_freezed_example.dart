@@ -61,7 +61,11 @@ class BlocFreezedExample extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final name = names[index];
                       return ListTile(
-                        onTap: () {},
+                        onTap: () {
+                          context
+                              .read<ExampleFreezedBloc>()
+                              .add(ExampleFreezedEvent.removeName(name));
+                        },
                         title: Text(name),
                       );
                     }),

@@ -38,7 +38,7 @@ class ExampleFreezedBloc
 
     newNames.retainWhere((element) => element != event.name);
 
-    emit(ExampleFreezedState.data(names: names));
+    emit(ExampleFreezedState.data(names:newNames));
   }
 
   FutureOr<void> _addName(_ExampleFreezedEventAddNames event,
