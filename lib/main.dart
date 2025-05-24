@@ -1,10 +1,11 @@
-
+import 'package:contact_bloc/features/bloc_example/bloc/bloc_freezed/example_freezed_bloc.dart';
+import 'package:contact_bloc/features/bloc_example/bloc/bloc_freezed_example.dart';
 import 'package:contact_bloc/features/bloc_example/bloc/example_bloc.dart';
 import 'package:contact_bloc/features/bloc_example/bloc_example.dart';
 import 'package:contact_bloc/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bloc/bloc.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -25,16 +26,20 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (_) => const HomePage(),
         '/bloc/example': (_) => BlocProvider(
-          create: (_) => ExampleBloc()..add(ExampleFindNameEvent()),
-          child: const BlocExamplePage(),
-        ),
-     //   '/bloc/example/contact': (context) => const BlocExample(),
-      //  '/bloc/example/freezed': (context) => const BlocExample(),
-      //  '/bloc/example/cubit': (context) => const BlocExample(),
-      }, 
+              create: (_) => ExampleBloc()..add(ExampleFindNameEvent()),
+              child: const BlocExamplePage(),
+            ),
+        '/bloc/example/freezed': (context) => BlocProvider(
+              create: (context) => ExampleFreezedBloc()
+                ..add(
+                  const ExampleFreezedEvent.findNames(),
+                ),
+              child: const BlocFreezedExample(),
+            ),
+        //   '/bloc/example/contact': (context) => const BlocExample(),
+        //  '/bloc/example/freezed': (context) => const BlocExample(),
+        //  '/bloc/example/cubit': (context) => const BlocExample(),
+      },
     );
   }
 }
-
-
-  
