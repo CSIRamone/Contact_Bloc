@@ -2,6 +2,7 @@ import 'package:contact_bloc/features/bloc_example/bloc/bloc_freezed/example_fre
 import 'package:contact_bloc/features/bloc_example/bloc/bloc_freezed_example.dart';
 import 'package:contact_bloc/features/bloc_example/bloc/example_bloc.dart';
 import 'package:contact_bloc/features/bloc_example/bloc_example.dart';
+import 'package:contact_bloc/features/contacts/list/contact_list_page.dart';
 import 'package:contact_bloc/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
                 ),
               child: const BlocFreezedExample(),
             ),
+        '/contacts/list': (context) => ContactListPage(),
         //   '/bloc/example/contact': (context) => const BlocExample(),
         //  '/bloc/example/freezed': (context) => const BlocExample(),
         //  '/bloc/example/cubit': (context) => const BlocExample(),

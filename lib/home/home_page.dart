@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
               _ButtonCard(
                 title: 'Contact',
                 onTap: () {
-                  Navigator.of(context).pushNamed('/bloc/example/contact');// Add your onTap functionality here
+                  Navigator.of(context).pushNamed('/contact/list');// Add your onTap functionality here
                 },
               ),
               _ButtonCard(
