@@ -24,9 +24,9 @@ class ContactListBloc extends Bloc<ContactListEvent, ContactListState> {
       emit(ContactListState.loading());
       log('buscando contatos');
       final contacts = await _repository.findAll();
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 1));
       //throw Exception();// for testing error handling
-      log('contatos encontrados: ${contacts.length}');
+      //log('contatos encontrados: ${contacts.length}');
 
       emit(ContactListState.data(contacts: contacts));
     } catch (e, s) {

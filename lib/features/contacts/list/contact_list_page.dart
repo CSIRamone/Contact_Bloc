@@ -73,7 +73,7 @@ class ContactListPage extends StatelessWidget {
                               title: Text(contact.name),
                               subtitle: Text(contact.email),
                               onTap: () {
-                                 Navigator.pushNamed(context, '/contacts/update', arguments: contact);
+                             //    Navigator.pushNamed(context, '/contacts/update');
                               },
                             );
                           },
