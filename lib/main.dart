@@ -4,6 +4,8 @@ import 'package:contact_bloc/features/bloc_example/bloc/example_bloc.dart';
 import 'package:contact_bloc/features/bloc_example/bloc_example.dart';
 import 'package:contact_bloc/features/contacts/list/bloc/contact_list_bloc.dart';
 import 'package:contact_bloc/features/contacts/list/contact_list_page.dart';
+import 'package:contact_bloc/features/contacts/register/contact_register_page.dart';
+import 'package:contact_bloc/features/contacts/update/contact_update_page.dart';
 import 'package:contact_bloc/home/home_page.dart';
 import 'package:contact_bloc/repositories/contacts_repository.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +47,9 @@ class MyApp extends StatelessWidget {
             create: (_) => ContactListBloc(repository: context.read<ContactsRepository>())
             ..add( ContactListEvent.findAll() ),
             child: ContactListPage()),
+          
+          '/contacts/register': (context) => const ContactRegisterPage(),
+          '/contacts/update': (context) => const ContactUpdatePage(),
           //   '/bloc/example/contact': (context) => const BlocExample(),
           //  '/bloc/example/freezed': (context) => const BlocExample(),
           //  '/bloc/example/cubit': (context) => const BlocExample(),

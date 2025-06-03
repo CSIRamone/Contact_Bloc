@@ -13,6 +13,12 @@ class ContactListPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Contact List'),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+           Navigator.pushNamed(context, '/contacts/register');
+        },
+        child: const Icon(Icons.add),
+      ),
       body: BlocListener<ContactListBloc, ContactListState>(
         listenWhen: (previous, current) => current.maybeWhen(
           error: (_) => true,
@@ -31,48 +37,54 @@ class ContactListPage extends StatelessWidget {
             },
           );
         },
-        child: CustomScrollView(
-          slivers: [
-            SliverFillRemaining(
-              child: Column(
-                children: [
-                  Loader<ContactListBloc, ContactListState>(
-                    selector: (state) {
-                      return state.maybeWhen(
-                        loading: () => true,
-                        orElse: () => false,
-                      );
-                    },
-                  ),
-                  BlocSelector<ContactListBloc, ContactListState,
-                      List<ContactModel>>(
-                    selector: (state) {
-                      return state.maybeWhen(
-                        data: (contacts) => contacts,
-                        orElse: () => [],
-                      );
-                    },
-                    builder: (_, contacts) {
-                      return ListView.builder(
-                        itemCount: contacts.length,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          final contact = contacts[index];
-                          return ListTile(
-                            title: Text(contact.name),
-                            subtitle: Text(contact.email),
-                            onTap: () {
-                              // Navigator.pushNamed(context, '/contact/detail', arguments: contacts[index]);
-                            },
-                          );
-                        },
-                      );
-                    },
-                  ),
-                ],
-              ),
-            )
-          ],
+        child: RefreshIndicator(
+          onRefresh: () async => context.read<ContactListBloc>()
+            ..add(
+              ContactListEvent.findAll(),
+            ),
+          child: CustomScrollView(
+            slivers: [
+              SliverFillRemaining(
+                child: Column(
+                  children: [
+                    Loader<ContactListBloc, ContactListState>(
+                      selector: (state) {
+                        return state.maybeWhen(
+                          loading: () => true,
+                          orElse: () => false,
+                        );
+                      },
+                    ),
+                    BlocSelector<ContactListBloc, ContactListState,
+                        List<ContactModel>>(
+                      selector: (state) {
+                        return state.maybeWhen(
+                          data: (contacts) => contacts,
+                          orElse: () => [],
+                        );
+                      },
+                      builder: (_, contacts) {
+                        return ListView.builder(
+                          itemCount: contacts.length,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            final contact = contacts[index];
+                            return ListTile(  
+                              title: Text(contact.name),
+                              subtitle: Text(contact.email),
+                              onTap: () {
+                                 Navigator.pushNamed(context, '/contacts/update', arguments: contact);
+                              },
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
