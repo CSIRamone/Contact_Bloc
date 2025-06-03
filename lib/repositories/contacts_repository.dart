@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class ContactsRepository {
 final String _baseUrl = Platform.isIOS
-? 'http://192.168.1.100:3031' //'http://127.0.0.1:3031' 
+? 'http://192.168.100.8:3031' //'http://127.0.0.1:3031' 
 : 'http://10.0.2.2:3031';
 
   Future<List<ContactModel>> findAll() async {
