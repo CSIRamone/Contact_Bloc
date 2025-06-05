@@ -17,11 +17,13 @@ class _ContactRegisterPageState extends State<ContactRegisterPage> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
+ 
 
   @override
   void dispose() {
     _nameController.dispose();
     _emailController.dispose();
+   
     super.dispose();
   }
 

@@ -21,7 +21,6 @@ class ContactRegisterBloc extends Bloc<ContactRegisterEvent, ContactRegisterStat
     on<_ContactRegisterEventRegister>(_register);
     log('ContactRegisterBloc initialized');
   }
-  
 
   Future<void> _register(
     _ContactRegisterEventRegister event, 
