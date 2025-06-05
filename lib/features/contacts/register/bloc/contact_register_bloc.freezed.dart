@@ -19,32 +19,50 @@ mixin _$ContactRegisterState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ContactRegisterStateInitial value) initial,
+    required TResult Function(_ContactRegisterStateLoading value) loading,
+    required TResult Function(_ContactRegisterStateSuccess value) success,
+    required TResult Function(_ContactRegisterStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ContactRegisterStateInitial value)? initial,
+    TResult? Function(_ContactRegisterStateLoading value)? loading,
+    TResult? Function(_ContactRegisterStateSuccess value)? success,
+    TResult? Function(_ContactRegisterStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ContactRegisterStateInitial value)? initial,
+    TResult Function(_ContactRegisterStateLoading value)? loading,
+    TResult Function(_ContactRegisterStateSuccess value)? success,
+    TResult Function(_ContactRegisterStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,6 +137,9 @@ class _$ContactRegisterStateInitialImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String message) error,
   }) {
     return initial();
   }
@@ -127,6 +148,9 @@ class _$ContactRegisterStateInitialImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(String message)? error,
   }) {
     return initial?.call();
   }
@@ -135,6 +159,9 @@ class _$ContactRegisterStateInitialImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -147,6 +174,9 @@ class _$ContactRegisterStateInitialImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ContactRegisterStateInitial value) initial,
+    required TResult Function(_ContactRegisterStateLoading value) loading,
+    required TResult Function(_ContactRegisterStateSuccess value) success,
+    required TResult Function(_ContactRegisterStateError value) error,
   }) {
     return initial(this);
   }
@@ -155,6 +185,9 @@ class _$ContactRegisterStateInitialImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ContactRegisterStateInitial value)? initial,
+    TResult? Function(_ContactRegisterStateLoading value)? loading,
+    TResult? Function(_ContactRegisterStateSuccess value)? success,
+    TResult? Function(_ContactRegisterStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -163,6 +196,9 @@ class _$ContactRegisterStateInitialImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ContactRegisterStateInitial value)? initial,
+    TResult Function(_ContactRegisterStateLoading value)? loading,
+    TResult Function(_ContactRegisterStateSuccess value)? success,
+    TResult Function(_ContactRegisterStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -175,6 +211,409 @@ class _$ContactRegisterStateInitialImpl
 abstract class _ContactRegisterStateInitial implements ContactRegisterState {
   const factory _ContactRegisterStateInitial() =
       _$ContactRegisterStateInitialImpl;
+}
+
+/// @nodoc
+abstract class _$$ContactRegisterStateLoadingImplCopyWith<$Res> {
+  factory _$$ContactRegisterStateLoadingImplCopyWith(
+          _$ContactRegisterStateLoadingImpl value,
+          $Res Function(_$ContactRegisterStateLoadingImpl) then) =
+      __$$ContactRegisterStateLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ContactRegisterStateLoadingImplCopyWithImpl<$Res>
+    extends _$ContactRegisterStateCopyWithImpl<$Res,
+        _$ContactRegisterStateLoadingImpl>
+    implements _$$ContactRegisterStateLoadingImplCopyWith<$Res> {
+  __$$ContactRegisterStateLoadingImplCopyWithImpl(
+      _$ContactRegisterStateLoadingImpl _value,
+      $Res Function(_$ContactRegisterStateLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ContactRegisterState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ContactRegisterStateLoadingImpl
+    implements _ContactRegisterStateLoading {
+  const _$ContactRegisterStateLoadingImpl();
+
+  @override
+  String toString() {
+    return 'ContactRegisterState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ContactRegisterStateLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String message) error,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(String message)? error,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ContactRegisterStateInitial value) initial,
+    required TResult Function(_ContactRegisterStateLoading value) loading,
+    required TResult Function(_ContactRegisterStateSuccess value) success,
+    required TResult Function(_ContactRegisterStateError value) error,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ContactRegisterStateInitial value)? initial,
+    TResult? Function(_ContactRegisterStateLoading value)? loading,
+    TResult? Function(_ContactRegisterStateSuccess value)? success,
+    TResult? Function(_ContactRegisterStateError value)? error,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ContactRegisterStateInitial value)? initial,
+    TResult Function(_ContactRegisterStateLoading value)? loading,
+    TResult Function(_ContactRegisterStateSuccess value)? success,
+    TResult Function(_ContactRegisterStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ContactRegisterStateLoading implements ContactRegisterState {
+  const factory _ContactRegisterStateLoading() =
+      _$ContactRegisterStateLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$ContactRegisterStateSuccessImplCopyWith<$Res> {
+  factory _$$ContactRegisterStateSuccessImplCopyWith(
+          _$ContactRegisterStateSuccessImpl value,
+          $Res Function(_$ContactRegisterStateSuccessImpl) then) =
+      __$$ContactRegisterStateSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ContactRegisterStateSuccessImplCopyWithImpl<$Res>
+    extends _$ContactRegisterStateCopyWithImpl<$Res,
+        _$ContactRegisterStateSuccessImpl>
+    implements _$$ContactRegisterStateSuccessImplCopyWith<$Res> {
+  __$$ContactRegisterStateSuccessImplCopyWithImpl(
+      _$ContactRegisterStateSuccessImpl _value,
+      $Res Function(_$ContactRegisterStateSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ContactRegisterState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ContactRegisterStateSuccessImpl
+    implements _ContactRegisterStateSuccess {
+  const _$ContactRegisterStateSuccessImpl();
+
+  @override
+  String toString() {
+    return 'ContactRegisterState.success()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ContactRegisterStateSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String message) error,
+  }) {
+    return success();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(String message)? error,
+  }) {
+    return success?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ContactRegisterStateInitial value) initial,
+    required TResult Function(_ContactRegisterStateLoading value) loading,
+    required TResult Function(_ContactRegisterStateSuccess value) success,
+    required TResult Function(_ContactRegisterStateError value) error,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ContactRegisterStateInitial value)? initial,
+    TResult? Function(_ContactRegisterStateLoading value)? loading,
+    TResult? Function(_ContactRegisterStateSuccess value)? success,
+    TResult? Function(_ContactRegisterStateError value)? error,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ContactRegisterStateInitial value)? initial,
+    TResult Function(_ContactRegisterStateLoading value)? loading,
+    TResult Function(_ContactRegisterStateSuccess value)? success,
+    TResult Function(_ContactRegisterStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ContactRegisterStateSuccess implements ContactRegisterState {
+  const factory _ContactRegisterStateSuccess() =
+      _$ContactRegisterStateSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$ContactRegisterStateErrorImplCopyWith<$Res> {
+  factory _$$ContactRegisterStateErrorImplCopyWith(
+          _$ContactRegisterStateErrorImpl value,
+          $Res Function(_$ContactRegisterStateErrorImpl) then) =
+      __$$ContactRegisterStateErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ContactRegisterStateErrorImplCopyWithImpl<$Res>
+    extends _$ContactRegisterStateCopyWithImpl<$Res,
+        _$ContactRegisterStateErrorImpl>
+    implements _$$ContactRegisterStateErrorImplCopyWith<$Res> {
+  __$$ContactRegisterStateErrorImplCopyWithImpl(
+      _$ContactRegisterStateErrorImpl _value,
+      $Res Function(_$ContactRegisterStateErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ContactRegisterState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ContactRegisterStateErrorImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ContactRegisterStateErrorImpl implements _ContactRegisterStateError {
+  const _$ContactRegisterStateErrorImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ContactRegisterState.error(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ContactRegisterStateErrorImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of ContactRegisterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ContactRegisterStateErrorImplCopyWith<_$ContactRegisterStateErrorImpl>
+      get copyWith => __$$ContactRegisterStateErrorImplCopyWithImpl<
+          _$ContactRegisterStateErrorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String message) error,
+  }) {
+    return error(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(String message)? error,
+  }) {
+    return error?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ContactRegisterStateInitial value) initial,
+    required TResult Function(_ContactRegisterStateLoading value) loading,
+    required TResult Function(_ContactRegisterStateSuccess value) success,
+    required TResult Function(_ContactRegisterStateError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ContactRegisterStateInitial value)? initial,
+    TResult? Function(_ContactRegisterStateLoading value)? loading,
+    TResult? Function(_ContactRegisterStateSuccess value)? success,
+    TResult? Function(_ContactRegisterStateError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ContactRegisterStateInitial value)? initial,
+    TResult Function(_ContactRegisterStateLoading value)? loading,
+    TResult Function(_ContactRegisterStateSuccess value)? success,
+    TResult Function(_ContactRegisterStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ContactRegisterStateError implements ContactRegisterState {
+  const factory _ContactRegisterStateError({required final String message}) =
+      _$ContactRegisterStateErrorImpl;
+
+  String get message;
+
+  /// Create a copy of ContactRegisterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ContactRegisterStateErrorImplCopyWith<_$ContactRegisterStateErrorImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
