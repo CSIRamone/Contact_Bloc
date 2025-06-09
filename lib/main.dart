@@ -2,6 +2,8 @@ import 'package:contact_bloc/features/bloc_example/bloc/bloc_freezed/example_fre
 import 'package:contact_bloc/features/bloc_example/bloc/bloc_freezed_example.dart';
 import 'package:contact_bloc/features/bloc_example/bloc/example_bloc.dart';
 import 'package:contact_bloc/features/bloc_example/bloc_example.dart';
+import 'package:contact_bloc/features/contact_cubit/list/contact_list_cubit.page.dart';
+import 'package:contact_bloc/features/contact_cubit/list/cubit/contact_list_cubit.dart';
 import 'package:contact_bloc/features/contacts/list/bloc/contact_list_bloc.dart';
 import 'package:contact_bloc/features/contacts/list/contact_list_page.dart';
 import 'package:contact_bloc/features/contacts/register/bloc/contact_register_bloc.dart';
@@ -66,7 +68,13 @@ class MyApp extends StatelessWidget {
                 contact: contactModel,
               ),
             );
-          }
+          },
+          '/bloc/example/cubit': (context) => BlocProvider(
+                create: (context) => ContactListCubit(
+                  repository: context.read<ContactsRepository>(),
+                )..findAll(),
+                child: const ContactListCubitPage(),
+              ),
           //   '/bloc/example/contact': (context) => const BlocExample(),
           //  '/bloc/example/freezed': (context) => const BlocExample(),
           //  '/bloc/example/cubit': (context) => const BlocExample(),
