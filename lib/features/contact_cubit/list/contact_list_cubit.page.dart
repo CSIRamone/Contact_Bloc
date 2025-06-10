@@ -1,5 +1,5 @@
 import 'package:contact_bloc/features/contact_cubit/list/cubit/contact_list_cubit.dart';
-import 'package:contact_bloc/features/contacts/list/bloc/contact_list_bloc.dart';
+import 'package:contact_bloc/features/contact_cubit/update/cubit/contact_update_list_cubit.dart';
 import 'package:contact_bloc/models/contact_model.dart';
 import 'package:contact_bloc/widgets/loader.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +13,13 @@ class ContactListCubitPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Contact list Cubit'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await Navigator.pushNamed(context, '/contacts/register/cubit');
+          context.read<ContactListCubit>().findAll();
+        },
+        child: const Icon(Icons.add),
       ),
       body: RefreshIndicator(
         onRefresh: () async {
@@ -43,7 +50,8 @@ class ContactListCubitPage extends StatelessWidget {
                       );
                     },
                   ),
-                  BlocSelector<ContactListCubit, ContactListCubitState, List<ContactModel>>(
+                  BlocSelector<ContactListCubit, ContactListCubitState,
+                      List<ContactModel>>(
                     selector: (state) {
                       return state.maybeWhen(
                         data: (contacts) => contacts,
@@ -63,8 +71,13 @@ class ContactListCubitPage extends StatelessWidget {
                                 .deleteContactByModel(contact),
                             title: Text(contact.name),
                             subtitle: Text(contact.email),
-                            onTap: () {
-                              // Handle contact tap
+                            onTap: () async{
+                              await Navigator.pushNamed(
+                                context,
+                                '/contacts/update/cubit',
+                                arguments: contact,
+                              );
+                              context.read<ContactListCubit>().findAll();
                             },
                           );
                         },

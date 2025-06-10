@@ -28,17 +28,8 @@ final ContactsRepository _contactRepository;
 }  catch (e, s) {
   log('Error fetching contacts: $e', error: e, stackTrace: s);
   emit(ContactListCubitState.error(message: 'Failed to fetch contacts'));
-}
-    
+} 
 
-  }
-
-  void addContact(ContactModel contact) {
-    // Logic to add a contact and emit new state
-  }
-
-  void updateContact(ContactModel contact) {
-    // Logic to update a contact and emit new state
   }
 
   void deleteContactByModel(ContactModel model) async {

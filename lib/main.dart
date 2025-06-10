@@ -4,6 +4,10 @@ import 'package:contact_bloc/features/bloc_example/bloc/example_bloc.dart';
 import 'package:contact_bloc/features/bloc_example/bloc_example.dart';
 import 'package:contact_bloc/features/contact_cubit/list/contact_list_cubit.page.dart';
 import 'package:contact_bloc/features/contact_cubit/list/cubit/contact_list_cubit.dart';
+import 'package:contact_bloc/features/contact_cubit/register/contact_register_list_cubit_page.dart';
+import 'package:contact_bloc/features/contact_cubit/register/cubit/contact_register_list_cubit.dart';
+import 'package:contact_bloc/features/contact_cubit/update/contact_update_list_cubit_page.dart';
+import 'package:contact_bloc/features/contact_cubit/update/cubit/contact_update_list_cubit.dart';
 import 'package:contact_bloc/features/contacts/list/bloc/contact_list_bloc.dart';
 import 'package:contact_bloc/features/contacts/list/contact_list_page.dart';
 import 'package:contact_bloc/features/contacts/register/bloc/contact_register_bloc.dart';
@@ -75,6 +79,25 @@ class MyApp extends StatelessWidget {
                 )..findAll(),
                 child: const ContactListCubitPage(),
               ),
+          '/contacts/register/cubit': (context) => BlocProvider(
+                create: (context) => ContactRegisterListCubit(
+                  repository: context.read<ContactsRepository>(),
+                ),
+                child: const ContactRegisterListCubitPage(),
+              ),
+          '/contacts/update/cubit': (context) {
+            final contactModel =
+                ModalRoute.of(context)!.settings.arguments as ContactModel;
+            return BlocProvider(
+              create: (context) => ContactUpdateListCubit(
+                repository: context.read<ContactsRepository>(),
+              ),
+              child: ContactUpdateListCubitPage(
+                contact: contactModel,
+              ),
+            );
+          },
+            
           //   '/bloc/example/contact': (context) => const BlocExample(),
           //  '/bloc/example/freezed': (context) => const BlocExample(),
           //  '/bloc/example/cubit': (context) => const BlocExample(),
