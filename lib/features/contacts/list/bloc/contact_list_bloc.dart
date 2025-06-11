@@ -27,7 +27,7 @@ class ContactListBloc extends Bloc<ContactListEvent, ContactListState> {
       emit(ContactListState.loading());
       log('buscando contatos');
       final contacts = await _repository.findAll();
-      await Future.delayed(const Duration(seconds: 1));
+     // await Future.delayed(const Duration(seconds: 1));
       //throw Exception();// for testing error handling
       //log('contatos encontrados: ${contacts.length}');
 
@@ -35,7 +35,7 @@ class ContactListBloc extends Bloc<ContactListEvent, ContactListState> {
     } catch (e, s) {
       log('error ao buscar contatos', error: e, stackTrace: s);
       emit(ContactListState.error(
-          message: ' erro ao buscar contatos ${e.toString()}'));
+          message: 'Erro ao buscar contatos')); // ${e.toString()}'));
     }
   }
 
@@ -45,7 +45,7 @@ class ContactListBloc extends Bloc<ContactListEvent, ContactListState> {
     
     emit(ContactListState.loading());
       await _repository.delete(event.model);
-      await Future.delayed(const Duration(seconds: 1));
+     // await Future.delayed(const Duration(seconds: 1));
       add(const ContactListEvent.findAll());
 
 
